@@ -10,10 +10,12 @@
 build/*
 lib/*
 !build/README.MD
+!build/.gitkeep
 
 # Ignore any executables
 bin/*
 !bin/README.MD
+!bin/.gitkeep
 
 # Ignore Mac specific files
 .DS_Store

@@ -1,6 +1,6 @@
 # Exploring CSR-based Mixed and Multi-Precision SpMV for GPUs
 
-Submitted to EuroPar'22 as "Erhan Tezcan, Tuğba Torun, Fahrican Koşar, Kamer Kaya and Didem Unat, _Mixed and Multi-Precision SpMV for GPUs with Row-wise Precision Selection_"
+This works aims to improve Sparse Matrix-Vector Multiplication by using mixed-precision (FP32 + FP64). In doing so, it permutes the matrix such that threads are more load balanced for the mixed-precision computations.
 
 ## Building
 
@@ -72,3 +72,7 @@ Stored under `scripts` folder:
 - `prints.py` helper functions for printing.
 
 `plottype` folder has generic plotting functions such as bar, heatmap, density etc. and `plotspecial` folder has specific plots.
+
+## Submission 
+
+Submitted to EuroPar'22 as "Erhan Tezcan, Tuğba Torun, Fahrican Koşar, Kamer Kaya and Didem Unat, _Mixed and Multi-Precision SpMV for GPUs with Row-wise Precision Selection_"
