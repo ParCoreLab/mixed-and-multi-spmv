@@ -1,0 +1,407 @@
+--- VERSIONS ---
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Sun_Feb_14_21:12:58_PST_2021
+Cuda compilation tools, release 11.2, V11.2.152
+Build cuda_11.2.r11.2/compiler.29618528_0
+gcc (GCC) 9.3.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Python 3.7.4
+
+--- BUILDING ---
+ Cleaning...
+rm -f -r build/*.o bin/spmv
+ Compiling C files...
+gcc -O3 -fopenmp -std=c99 -Wno-unused-result -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/mmio.o src/mmio.c
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/printing.o src/printing.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/matrix.o src/matrix.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/precisions.o src/precisions.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/parameters.o src/parameters.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/utils.o src/utils.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/graph.o src/graph.cpp
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/compute_utils.o src/compute_utils.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/kernels.o src/kernels.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/spmv_computations.o src/spmv_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/compute_drives.o src/compute_drives.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_kernel_computations.o src/jacobi_kernel_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_computations.o src/jacobi_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_multistep_computations.o src/jacobi_multistep_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_kernel_multistep_computations.o src/jacobi_kernel_multistep_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/main.o src/main.cu
+ Linking...
+gcc build/mmio.o build/printing.o build/matrix.o build/precisions.o build/parameters.o build/utils.o build/graph.o build/compute_utils.o build/kernels.o build/spmv_computations.o build/compute_drives.o build/jacobi_kernel_computations.o build/jacobi_computations.o build/jacobi_multistep_computations.o build/jacobi_kernel_multistep_computations.o build/main.o -o bin/spmv -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -lrt -lm -lcudart -fopenmp -lhsl_mc64 -lhsl_mc69 -lgfortran -Llib -L/usr/local/cuda-11.2/lib64 -L/usr/local/lib/ -L../lib/
+
+--- RUNNING ---
+Wed Nov 10 12:37:56 +03 2021
+Evaluating matrices: ['./res/atmosmodj.mtx', './res/atmosmodd.mtx', './res/rdb5000.mtx', './res/bodyy5_coord.mtx', './res/atmosmodd_b.mtx', './res/mc2depi.mtx', './res/cdde1.mtx', './res/mesh1e1_coord.mtx', './res/Ge99H100.mtx', './res/bwm2000.mtx', './res/mesh2e1_coord.mtx', './res/atmosmodm.mtx', './res/steam2.mtx', './res/cdde5.mtx', './res/sherman4.mtx', './res/atmosmodl_b.mtx', './res/fv1.mtx', './res/rdb1250l.mtx', './res/bodyy4_coord.mtx', './res/saylr4.mtx', './res/bodyy5.mtx', './res/nos1.mtx', './res/mesh1em6_coord.mtx', './res/atmosmodj_b.mtx', './res/rdb200l.mtx', './res/atmosmodm_b.mtx', './res/t2em.mtx', './res/Ge87H76.mtx', './res/mesh2em5.mtx', './res/pde2961.mtx', './res/fv3.mtx', './res/cell2_b.mtx', './res/cell1.mtx', './res/bodyy6.mtx', './res/bcsstk09.mtx', './res/saylr1.mtx', './res/pde225.mtx', './res/ecology1.mtx', './res/fv2.mtx', './res/language.mtx', './res/mesh1em6.mtx', './res/bcsstk21.mtx', './res/mesh1e1.mtx', './res/majorbasis.mtx', './res/cdde6.mtx', './res/mesh2e1.mtx', './res/mesh1em1_coord.mtx', './res/Chem97ZtZ.mtx', './res/mesh1em1.mtx', './res/atmosmodl.mtx', './res/benzene.mtx', './res/mesh3e1_coord.mtx', './res/cell2.mtx', './res/tub1000.mtx', './res/cell1_b.mtx', './res/cdde3.mtx', './res/bodyy4.mtx', './res/bodyy6_coord.mtx', './res/mesh3em5_coord.mtx', './res/steam3.mtx', './res/mesh3em5.mtx', './res/cdde2.mtx', './res/nos6.mtx', './res/nopoly.mtx', './res/cfd1.mtx', './res/Si2.mtx', './res/mesh2em5_coord.mtx', './res/ecology2.mtx', './res/mesh3e1.mtx', './res/sherman4_b.mtx', './res/Andrews.mtx', './res/pde900.mtx', './res/cdde4.mtx', './res/pesa.mtx', './res/cfd2.mtx', './res/rdb3200l.mtx']
+[ 1 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodj.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 2 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodd.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 3 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/rdb5000.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 4 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy5_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in bodyy5_coord : bad matrix
+[ 5 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodd_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in atmosmodd_b : bad matrix
+[ 6 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mc2depi.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 7 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 8 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1e1_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh1e1_coord : bad matrix
+[ 9 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Ge99H100.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 10 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bwm2000.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 11 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh2e1_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh2e1_coord : bad matrix
+[ 12 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodm.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 13 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/steam2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 14 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde5.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 15 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/sherman4.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 16 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodl_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in atmosmodl_b : bad matrix
+[ 17 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/fv1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 18 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/rdb1250l.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 19 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy4_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in bodyy4_coord : bad matrix
+[ 20 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/saylr4.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 21 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy5.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 22 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/nos1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 23 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1em6_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh1em6_coord : bad matrix
+[ 24 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodj_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in atmosmodj_b : bad matrix
+[ 25 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/rdb200l.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 26 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodm_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in atmosmodm_b : bad matrix
+[ 27 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/t2em.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 28 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Ge87H76.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 29 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh2em5.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 30 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/pde2961.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 31 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/fv3.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 32 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cell2_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in cell2_b : bad matrix
+[ 33 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cell1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 34 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy6.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 35 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bcsstk09.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 36 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/saylr1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 37 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/pde225.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 38 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/ecology1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 39 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/fv2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 40 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/language.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 41 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1em6.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 42 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bcsstk21.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 43 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1e1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 44 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/majorbasis.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 45 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde6.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 46 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh2e1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 47 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1em1_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh1em1_coord : bad matrix
+[ 48 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Chem97ZtZ.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 49 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1em1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 50 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodl.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 51 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/benzene.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 52 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh3e1_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh3e1_coord : bad matrix
+[ 53 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cell2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 54 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/tub1000.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 55 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cell1_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in cell1_b : bad matrix
+[ 56 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde3.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 57 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy4.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 58 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy6_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in bodyy6_coord : bad matrix
+[ 59 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh3em5_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh3em5_coord : bad matrix
+[ 60 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/steam3.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 61 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh3em5.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 62 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 63 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/nos6.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 64 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/nopoly.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 65 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cfd1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 66 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Si2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 67 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh2em5_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh2em5_coord : bad matrix
+[ 68 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/ecology2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 69 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh3e1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 70 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/sherman4_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in sherman4_b : bad matrix
+[ 71 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Andrews.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 72 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/pde900.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 73 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde4.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 74 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/pesa.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 75 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cfd2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 76 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/rdb3200l.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+info results saved as JSON at:
+ /scratch/users/etezcan19/mcsr-spmv/scripts/../evaluations/out/10-11-2021_12-38-00/dict.json
+
+--- BUILDING ---
+ Cleaning...
+rm -f -r build/*.o bin/spmv
+ Compiling C files...
+gcc -O3 -fopenmp -std=c99 -Wno-unused-result -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/mmio.o src/mmio.c
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/printing.o src/printing.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/matrix.o src/matrix.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/precisions.o src/precisions.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/parameters.o src/parameters.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/utils.o src/utils.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/graph.o src/graph.cpp
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/compute_utils.o src/compute_utils.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/kernels.o src/kernels.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/spmv_computations.o src/spmv_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/compute_drives.o src/compute_drives.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_kernel_computations.o src/jacobi_kernel_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_computations.o src/jacobi_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_multistep_computations.o src/jacobi_multistep_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_kernel_multistep_computations.o src/jacobi_kernel_multistep_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/main.o src/main.cu
+ Linking...
+gcc build/mmio.o build/printing.o build/matrix.o build/precisions.o build/parameters.o build/utils.o build/graph.o build/compute_utils.o build/kernels.o build/spmv_computations.o build/compute_drives.o build/jacobi_kernel_computations.o build/jacobi_computations.o build/jacobi_multistep_computations.o build/jacobi_kernel_multistep_computations.o build/main.o -o bin/spmv -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -lrt -lm -lcudart -fopenmp -lhsl_mc64 -lhsl_mc69 -lgfortran -Llib -L/usr/local/cuda-11.2/lib64 -L/usr/local/lib/ -L../lib/
+
+--- RUNNING ---
+Wed Nov 10 12:46:55 +03 2021
+Evaluating matrices: ['./res/atmosmodj.mtx', './res/atmosmodd.mtx', './res/rdb5000.mtx', './res/bodyy5_coord.mtx', './res/atmosmodd_b.mtx', './res/mc2depi.mtx', './res/cdde1.mtx', './res/mesh1e1_coord.mtx', './res/Ge99H100.mtx', './res/bwm2000.mtx', './res/mesh2e1_coord.mtx', './res/atmosmodm.mtx', './res/steam2.mtx', './res/cdde5.mtx', './res/sherman4.mtx', './res/atmosmodl_b.mtx', './res/fv1.mtx', './res/rdb1250l.mtx', './res/bodyy4_coord.mtx', './res/saylr4.mtx', './res/bodyy5.mtx', './res/nos1.mtx', './res/mesh1em6_coord.mtx', './res/atmosmodj_b.mtx', './res/rdb200l.mtx', './res/atmosmodm_b.mtx', './res/t2em.mtx', './res/Ge87H76.mtx', './res/mesh2em5.mtx', './res/pde2961.mtx', './res/fv3.mtx', './res/cell2_b.mtx', './res/cell1.mtx', './res/bodyy6.mtx', './res/bcsstk09.mtx', './res/saylr1.mtx', './res/pde225.mtx', './res/ecology1.mtx', './res/fv2.mtx', './res/language.mtx', './res/mesh1em6.mtx', './res/bcsstk21.mtx', './res/mesh1e1.mtx', './res/majorbasis.mtx', './res/cdde6.mtx', './res/mesh2e1.mtx', './res/mesh1em1_coord.mtx', './res/Chem97ZtZ.mtx', './res/mesh1em1.mtx', './res/atmosmodl.mtx', './res/benzene.mtx', './res/mesh3e1_coord.mtx', './res/cell2.mtx', './res/tub1000.mtx', './res/cell1_b.mtx', './res/cdde3.mtx', './res/bodyy4.mtx', './res/bodyy6_coord.mtx', './res/mesh3em5_coord.mtx', './res/steam3.mtx', './res/mesh3em5.mtx', './res/cdde2.mtx', './res/nos6.mtx', './res/nopoly.mtx', './res/cfd1.mtx', './res/Si2.mtx', './res/mesh2em5_coord.mtx', './res/ecology2.mtx', './res/mesh3e1.mtx', './res/sherman4_b.mtx', './res/Andrews.mtx', './res/pde900.mtx', './res/cdde4.mtx', './res/pesa.mtx', './res/cfd2.mtx', './res/rdb3200l.mtx']
+[ 1 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodj.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 2 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodd.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 3 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/rdb5000.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 4 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy5_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in bodyy5_coord : bad matrix
+[ 5 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodd_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in atmosmodd_b : bad matrix
+[ 6 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mc2depi.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 7 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 8 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1e1_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh1e1_coord : bad matrix
+[ 9 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Ge99H100.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 10 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bwm2000.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 11 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh2e1_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh2e1_coord : bad matrix
+[ 12 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodm.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 13 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/steam2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 14 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde5.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 15 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/sherman4.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 16 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodl_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in atmosmodl_b : bad matrix
+[ 17 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/fv1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 18 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/rdb1250l.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 19 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy4_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in bodyy4_coord : bad matrix
+[ 20 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/saylr4.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 21 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy5.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 22 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/nos1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 23 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1em6_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh1em6_coord : bad matrix
+[ 24 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodj_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in atmosmodj_b : bad matrix
+[ 25 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/rdb200l.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 26 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodm_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in atmosmodm_b : bad matrix
+[ 27 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/t2em.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 28 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Ge87H76.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 29 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh2em5.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 30 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/pde2961.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 31 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/fv3.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 32 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cell2_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in cell2_b : bad matrix
+[ 33 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cell1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 34 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy6.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 35 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bcsstk09.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 36 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/saylr1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 37 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/pde225.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 38 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/ecology1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 39 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/fv2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 40 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/language.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 41 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1em6.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 42 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bcsstk21.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 43 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1e1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 44 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/majorbasis.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 45 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde6.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 46 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh2e1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 47 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1em1_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh1em1_coord : bad matrix
+[ 48 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Chem97ZtZ.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 49 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh1em1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 50 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/atmosmodl.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 51 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/benzene.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 52 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh3e1_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh3e1_coord : bad matrix
+[ 53 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cell2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 54 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/tub1000.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 55 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cell1_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in cell1_b : bad matrix
+[ 56 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde3.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 57 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy4.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 58 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/bodyy6_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in bodyy6_coord : bad matrix
+[ 59 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh3em5_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh3em5_coord : bad matrix
+[ 60 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/steam3.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 61 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh3em5.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 62 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 63 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/nos6.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 64 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/nopoly.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 65 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cfd1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 66 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Si2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 67 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh2em5_coord.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in mesh2em5_coord : bad matrix
+[ 68 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/ecology2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 69 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/mesh3e1.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 70 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/sherman4_b.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Error in sherman4_b : bad matrix
+[ 71 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/Andrews.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 72 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/pde900.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 73 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cdde4.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 74 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/pesa.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 75 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/cfd2.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+[ 76 / 76 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m ./res/rdb3200l.mtx -s -p 1 -e 1e-12 --jacobi-i 800 --dd-p 100.0
+Success.
+info results saved as JSON at:
+ /scratch/users/etezcan19/mcsr-spmv/scripts/../evaluations/out/10-11-2021_12-46-58/dict.json
+
+--- DONE ---
+Wed Nov 10 13:12:19 +03 2021

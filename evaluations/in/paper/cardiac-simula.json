@@ -1,0 +1,716 @@
+{
+  "heart01_A_uniform_forward_dt0001_fv": {
+    "spmv": {},
+    "jacobi": {},
+    "cardiac": {
+      "FP64 (CUSP)": {
+        "time": 44.658913,
+        "speedup": 0.649462,
+        "error": 0.0,
+        "doubles": 48916,
+        "singles": 0,
+        "percentage": 0.0
+      },
+      "FP32-D (CUSP)": {
+        "time": 45.379105,
+        "speedup": 0.639154,
+        "error": 5.25118e-9,
+        "doubles": 0,
+        "singles": 48916,
+        "percentage": 1.0
+      },
+      "DD (ESBASE)": {
+        "time": 50.188801,
+        "speedup": 0.577903,
+        "error": 2.73233e-9,
+        "doubles": 3280,
+        "singles": 45636,
+        "percentage": 0.93295
+      },
+      "DD (ES)": {
+        "time": 47.859009,
+        "speedup": 0.606035,
+        "error": 2.07042e-9,
+        "doubles": 5897,
+        "singles": 43019,
+        "percentage": 0.87945
+      },
+      "DD (RS)": {
+        "time": 45.853313,
+        "speedup": 0.632544,
+        "error": 2.08192e-9,
+        "doubles": 14814,
+        "singles": 34102,
+        "percentage": 0.69715
+      },
+      "DD (RD)": {
+        "time": 47.007298,
+        "speedup": 0.617016,
+        "error": 2.08192e-9,
+        "doubles": 14814,
+        "singles": 34102,
+        "percentage": 0.69715
+      },
+      "DD (RC)": {
+        "time": 45.692127,
+        "speedup": 0.634776,
+        "error": 2.08192e-9,
+        "doubles": 14814,
+        "singles": 34102,
+        "percentage": 0.69715
+      },
+      "DD(RC)-FP64": {
+        "time": 45.522881,
+        "speedup": 0.637136,
+        "error": 1.02718e-9,
+        "doubles": 14814,
+        "singles": 34102,
+        "percentage": 0.69715
+      },
+      "FP32-DD(RC)-FP64": {
+        "time": 45.900864,
+        "speedup": 0.631889,
+        "error": 2.0879e-9,
+        "doubles": 14814,
+        "singles": 34102,
+        "percentage": 0.69715
+      }
+    },
+    "timings": {},
+    "error": null,
+    "info": {
+      "path": "/home/ttorun/erhan/mcsr-spmv/res/cardiac/heart01_A_uniform_forward_dt0001_fv.mtx",
+      "code": 0,
+      "rows": 4717,
+      "cols": 4717,
+      "is_square": true,
+      "nnz": 53633,
+      "spmv_iter": 500,
+      "jacobi_iter": 500,
+      "cardiac_iter": 8000,
+      "is_symmetric": false,
+      "run_option": 1,
+      "empty_rows": 0,
+      "avg_nz_inrow": 11.370151,
+      "min_nz_inrow": 7,
+      "max_nz_inrow": 17,
+      "dd_range": 1.0,
+      "dd_percentage": 99.0,
+      "dd_shrink": 0.5,
+      "mattype": "r"
+    },
+    "parameters": null
+  },
+  "heart02_A_uniform_forward_dt0001_fv": {
+    "spmv": {},
+    "jacobi": {},
+    "cardiac": {
+      "FP64 (CUSP)": {
+        "time": 621.687378,
+        "speedup": 0.930144,
+        "error": 0.0,
+        "doubles": 2727694,
+        "singles": 0,
+        "percentage": 0.0
+      },
+      "FP32-D (CUSP)": {
+        "time": 563.215576,
+        "speedup": 1.02671,
+        "error": 1.6789e-8,
+        "doubles": 0,
+        "singles": 2727694,
+        "percentage": 1.0
+      },
+      "DD (ESBASE)": {
+        "time": 753.586121,
+        "speedup": 0.767343,
+        "error": 1.5489e-9,
+        "doubles": 1618087,
+        "singles": 1109607,
+        "percentage": 0.40679
+      },
+      "DD (ES)": {
+        "time": 711.926758,
+        "speedup": 0.812245,
+        "error": 1.26175e-8,
+        "doubles": 353900,
+        "singles": 2373794,
+        "percentage": 0.87026
+      },
+      "DD (RS)": {
+        "time": 608.639465,
+        "speedup": 0.950084,
+        "error": 1.15505e-8,
+        "doubles": 1191366,
+        "singles": 1536328,
+        "percentage": 0.56323
+      },
+      "DD (RD)": {
+        "time": 714.834473,
+        "speedup": 0.808941,
+        "error": 1.15505e-8,
+        "doubles": 1191366,
+        "singles": 1536328,
+        "percentage": 0.56323
+      },
+      "DD (RC)": {
+        "time": 601.954102,
+        "speedup": 0.960636,
+        "error": 1.15505e-8,
+        "doubles": 1191366,
+        "singles": 1536328,
+        "percentage": 0.56323
+      },
+      "DD(RC)-FP64": {
+        "time": 621.288757,
+        "speedup": 0.930741,
+        "error": 5.88956e-9,
+        "doubles": 1191366,
+        "singles": 1536328,
+        "percentage": 0.56323
+      },
+      "FP32-DD(RC)-FP64": {
+        "time": 603.152893,
+        "speedup": 0.958727,
+        "error": 9.2563e-9,
+        "doubles": 1191366,
+        "singles": 1536328,
+        "percentage": 0.56323
+      }
+    },
+    "timings": {},
+    "error": null,
+    "info": {
+      "path": "/home/ttorun/erhan/mcsr-spmv/res/cardiac/heart02_A_uniform_forward_dt0001_fv.mtx",
+      "code": 0,
+      "rows": 210101,
+      "cols": 210101,
+      "is_square": true,
+      "nnz": 2937795,
+      "spmv_iter": 500,
+      "jacobi_iter": 500,
+      "cardiac_iter": 8000,
+      "is_symmetric": false,
+      "run_option": 1,
+      "empty_rows": 0,
+      "avg_nz_inrow": 13.982775,
+      "min_nz_inrow": 6,
+      "max_nz_inrow": 17,
+      "dd_range": 1.0,
+      "dd_percentage": 99.0,
+      "dd_shrink": 0.5,
+      "mattype": "r"
+    },
+    "parameters": null
+  },
+  "heart03_A_uniform_forward_dt0001_fv": {
+    "spmv": {},
+    "jacobi": {},
+    "cardiac": {
+      "FP64 (CUSP)": {
+        "time": 4605.648438,
+        "speedup": 0.949144,
+        "error": 0.0,
+        "doubles": 21989294,
+        "singles": 0,
+        "percentage": 0.0
+      },
+      "FP32-D (CUSP)": {
+        "time": 3909.692383,
+        "speedup": 1.118099,
+        "error": 1.98704e-8,
+        "doubles": 0,
+        "singles": 21989294,
+        "percentage": 1.0
+      },
+      "DD (ESBASE)": {
+        "time": 5599.022461,
+        "speedup": 0.780748,
+        "error": 2.67201e-10,
+        "doubles": 15647447,
+        "singles": 6341847,
+        "percentage": 0.28841
+      },
+      "DD (ES)": {
+        "time": 5074.550293,
+        "speedup": 0.861441,
+        "error": 1.73414e-8,
+        "doubles": 2813605,
+        "singles": 19175689,
+        "percentage": 0.87205
+      },
+      "DD (RS)": {
+        "time": 4392.756348,
+        "speedup": 0.995144,
+        "error": 1.63719e-8,
+        "doubles": 9800080,
+        "singles": 12189214,
+        "percentage": 0.55432
+      },
+      "DD (RD)": {
+        "time": 5194.933594,
+        "speedup": 0.841478,
+        "error": 1.63719e-8,
+        "doubles": 9800080,
+        "singles": 12189214,
+        "percentage": 0.55432
+      },
+      "DD (RC)": {
+        "time": 4379.549805,
+        "speedup": 0.998145,
+        "error": 1.63719e-8,
+        "doubles": 9800080,
+        "singles": 12189214,
+        "percentage": 0.55432
+      },
+      "DD(RC)-FP64": {
+        "time": 4585.069824,
+        "speedup": 0.953404,
+        "error": 1.13423e-8,
+        "doubles": 9800080,
+        "singles": 12189214,
+        "percentage": 0.55432
+      },
+      "FP32-DD(RC)-FP64": {
+        "time": 4395.781738,
+        "speedup": 0.994459,
+        "error": 1.3678e-8,
+        "doubles": 9800080,
+        "singles": 12189214,
+        "percentage": 0.55432
+      }
+    },
+    "timings": {},
+    "error": null,
+    "info": {
+      "path": "/home/ttorun/erhan/mcsr-spmv/res/cardiac/heart03_A_uniform_forward_dt0001_fv.mtx",
+      "code": 0,
+      "rows": 1607708,
+      "cols": 1607708,
+      "is_square": true,
+      "nnz": 23597002,
+      "spmv_iter": 500,
+      "jacobi_iter": 500,
+      "cardiac_iter": 8000,
+      "is_symmetric": false,
+      "run_option": 1,
+      "empty_rows": 0,
+      "avg_nz_inrow": 14.677418,
+      "min_nz_inrow": 6,
+      "max_nz_inrow": 17,
+      "dd_range": 1.0,
+      "dd_percentage": 99.0,
+      "dd_shrink": 0.5,
+      "mattype": "r"
+    },
+    "parameters": null
+  },
+  "heart04_A_uniform_forward_dt0001_fv": {
+    "spmv": {},
+    "jacobi": {},
+    "cardiac": {
+      "FP64 (CUSP)": {
+        "time": 9141.582031,
+        "speedup": 0.963288,
+        "error": 0.0,
+        "doubles": 41954810,
+        "singles": 0,
+        "percentage": 0.0
+      },
+      "FP32-D (CUSP)": {
+        "time": 7659.47168,
+        "speedup": 1.149685,
+        "error": 1.981e-8,
+        "doubles": 0,
+        "singles": 41954810,
+        "percentage": 1.0
+      },
+      "DD (ESBASE)": {
+        "time": 10917.371094,
+        "speedup": 0.806602,
+        "error": 1.51242e-10,
+        "doubles": 30420391,
+        "singles": 11534419,
+        "percentage": 0.27492
+      },
+      "DD (ES)": {
+        "time": 9781.469727,
+        "speedup": 0.900271,
+        "error": 1.73594e-8,
+        "doubles": 5292152,
+        "singles": 36662658,
+        "percentage": 0.87386
+      },
+      "DD (RS)": {
+        "time": 8508.514648,
+        "speedup": 1.034961,
+        "error": 1.67545e-8,
+        "doubles": 18862091,
+        "singles": 23092719,
+        "percentage": 0.55042
+      },
+      "DD (RD)": {
+        "time": 10300.493164,
+        "speedup": 0.854908,
+        "error": 1.67545e-8,
+        "doubles": 18862091,
+        "singles": 23092719,
+        "percentage": 0.55042
+      },
+      "DD (RC)": {
+        "time": 8658.87207,
+        "speedup": 1.016989,
+        "error": 1.67545e-8,
+        "doubles": 18862091,
+        "singles": 23092719,
+        "percentage": 0.55042
+      },
+      "DD(RC)-FP64": {
+        "time": 9101.050781,
+        "speedup": 0.967578,
+        "error": 1.2659e-8,
+        "doubles": 18862091,
+        "singles": 23092719,
+        "percentage": 0.55042
+      },
+      "FP32-DD(RC)-FP64": {
+        "time": 8680.470703,
+        "speedup": 1.014459,
+        "error": 1.39315e-8,
+        "doubles": 18862091,
+        "singles": 23092719,
+        "percentage": 0.55042
+      }
+    },
+    "timings": {},
+    "error": null,
+    "info": {
+      "path": "/home/ttorun/erhan/mcsr-spmv/res/cardiac/heart04_A_uniform_forward_dt0001_fv.mtx",
+      "code": 0,
+      "rows": 3031704,
+      "cols": 3031704,
+      "is_square": true,
+      "nnz": 44986514,
+      "spmv_iter": 500,
+      "jacobi_iter": 500,
+      "cardiac_iter": 8000,
+      "is_symmetric": false,
+      "run_option": 1,
+      "empty_rows": 0,
+      "avg_nz_inrow": 14.838689,
+      "min_nz_inrow": 6,
+      "max_nz_inrow": 17,
+      "dd_range": 1.0,
+      "dd_percentage": 99.0,
+      "dd_shrink": 0.5,
+      "mattype": "r"
+    },
+    "parameters": null
+  },
+  "heart05_A_uniform_forward_dt0001_fv": {
+    "spmv": {},
+    "jacobi": {},
+    "cardiac": {
+      "FP64 (CUSP)": {
+        "time": 23634.791016,
+        "speedup": 0.970604,
+        "error": 0.0,
+        "doubles": 100789228,
+        "singles": 0,
+        "percentage": 0.0
+      },
+      "FP32-D (CUSP)": {
+        "time": 19691.117188,
+        "speedup": 1.164993,
+        "error": 1.97578e-8,
+        "doubles": 0,
+        "singles": 100789228,
+        "percentage": 1.0
+      },
+      "DD (ESBASE)": {
+        "time": 27593.794922,
+        "speedup": 0.831347,
+        "error": 6.95895e-11,
+        "doubles": 74230221,
+        "singles": 26559007,
+        "percentage": 0.26351
+      },
+      "DD (ES)": {
+        "time": 24852.632812,
+        "speedup": 0.923042,
+        "error": 1.73514e-8,
+        "doubles": 12683828,
+        "singles": 88105400,
+        "percentage": 0.87415
+      },
+      "DD (RS)": {
+        "time": 21735.869141,
+        "speedup": 1.055399,
+        "error": 1.69306e-8,
+        "doubles": 45405659,
+        "singles": 55383569,
+        "percentage": 0.5495
+      },
+      "DD (RD)": {
+        "time": 27255.8125,
+        "speedup": 0.841656,
+        "error": 1.69306e-8,
+        "doubles": 45405659,
+        "singles": 55383569,
+        "percentage": 0.5495
+      },
+      "DD (RC)": {
+        "time": 22019.105469,
+        "speedup": 1.041823,
+        "error": 1.69306e-8,
+        "doubles": 45405659,
+        "singles": 55383569,
+        "percentage": 0.5495
+      },
+      "DD(RC)-FP64": {
+        "time": 23096.117188,
+        "speedup": 0.993241,
+        "error": 1.35959e-8,
+        "doubles": 45405659,
+        "singles": 55383569,
+        "percentage": 0.5495
+      },
+      "FP32-DD(RC)-FP64": {
+        "time": 22067.273438,
+        "speedup": 1.039549,
+        "error": 1.39652e-8,
+        "doubles": 45405659,
+        "singles": 55383569,
+        "percentage": 0.5495
+      }
+    },
+    "timings": {},
+    "error": null,
+    "info": {
+      "path": "/home/ttorun/erhan/mcsr-spmv/res/cardiac/heart05_A_uniform_forward_dt0001_fv.mtx",
+      "code": 0,
+      "rows": 7205076,
+      "cols": 7205076,
+      "is_square": true,
+      "nnz": 107994304,
+      "spmv_iter": 500,
+      "jacobi_iter": 500,
+      "cardiac_iter": 8000,
+      "is_symmetric": false,
+      "run_option": 1,
+      "empty_rows": 0,
+      "avg_nz_inrow": 14.988642,
+      "min_nz_inrow": 6,
+      "max_nz_inrow": 17,
+      "dd_range": 1.0,
+      "dd_percentage": 99.0,
+      "dd_shrink": 0.5,
+      "mattype": "r"
+    },
+    "parameters": null
+  },
+  "heart06_A_uniform_forward_dt0001_fv": {
+    "spmv": {},
+    "jacobi": {},
+    "cardiac": {
+      "FP64 (CUSP)": {
+        "time": 99205.09375,
+        "speedup": 1.066693,
+        "error": 0.0,
+        "doubles": 333832334,
+        "singles": 0,
+        "percentage": 0.0
+      },
+      "FP32-D (CUSP)": {
+        "time": 77788.828125,
+        "speedup": 1.360367,
+        "error": 1.97452e-8,
+        "doubles": 0,
+        "singles": 333832334,
+        "percentage": 1.0
+      },
+      "DD (ESBASE)": {
+        "time": 117498.164062,
+        "speedup": 0.900621,
+        "error": 2.43556e-11,
+        "doubles": 248679712,
+        "singles": 85152622,
+        "percentage": 0.25508
+      },
+      "DD (ES)": {
+        "time": 105593.554688,
+        "speedup": 1.002157,
+        "error": 1.73766e-8,
+        "doubles": 41627076,
+        "singles": 292205258,
+        "percentage": 0.87531
+      },
+      "DD (RS)": {
+        "time": 87289.90625,
+        "speedup": 1.212298,
+        "error": 1.69745e-8,
+        "doubles": 151270548,
+        "singles": 182561786,
+        "percentage": 0.54687
+      },
+      "DD (RD)": {
+        "time": 129291.78125,
+        "speedup": 0.818469,
+        "error": 1.69745e-8,
+        "doubles": 151270548,
+        "singles": 182561786,
+        "percentage": 0.54687
+      },
+      "DD (RC)": {
+        "time": 88665.0,
+        "speedup": 1.193496,
+        "error": 1.69745e-8,
+        "doubles": 151270548,
+        "singles": 182561786,
+        "percentage": 0.54687
+      },
+      "DD(RC)-FP64": {
+        "time": 95543.648438,
+        "speedup": 1.107571,
+        "error": 1.39151e-8,
+        "doubles": 151270548,
+        "singles": 182561786,
+        "percentage": 0.54687
+      },
+      "FP32-DD(RC)-FP64": {
+        "time": 89768.757812,
+        "speedup": 1.178822,
+        "error": 1.39532e-8,
+        "doubles": 151270548,
+        "singles": 182561786,
+        "percentage": 0.54687
+      }
+    },
+    "timings": {},
+    "error": null,
+    "info": {
+      "path": "/home/ttorun/erhan/mcsr-spmv/res/cardiac/heart06_A_uniform_forward_dt0001_fv.mtx",
+      "code": 0,
+      "rows": 23595379,
+      "cols": 23595379,
+      "is_square": true,
+      "nnz": 357427713,
+      "spmv_iter": 500,
+      "jacobi_iter": 500,
+      "cardiac_iter": 8000,
+      "is_symmetric": false,
+      "run_option": 1,
+      "empty_rows": 0,
+      "avg_nz_inrow": 15.148208,
+      "min_nz_inrow": 5,
+      "max_nz_inrow": 17,
+      "dd_range": 1.0,
+      "dd_percentage": 99.0,
+      "dd_shrink": 0.5,
+      "mattype": "r"
+    },
+    "parameters": null
+  },
+  "heart07_A_uniform_forward_dt0001_fv": {
+    "spmv": {},
+    "jacobi": {},
+    "cardiac": {
+      "FP64 (CUSP)": {
+        "time": 397928.96875,
+        "speedup": 1.137305,
+        "error": 0.0,
+        "doubles": 791107308,
+        "singles": 0,
+        "percentage": 0.0
+      },
+      "FP32-D (CUSP)": {
+        "time": 250853.265625,
+        "speedup": 1.804109,
+        "error": 3.06436e-8,
+        "doubles": 0,
+        "singles": 791107308,
+        "percentage": 1.0
+      },
+      "DD (ESBASE)": {
+        "time": 538979.9375,
+        "speedup": 0.839673,
+        "error": 1.34924e-11,
+        "doubles": 591916260,
+        "singles": 199191048,
+        "percentage": 0.25179
+      },
+      "DD (ES)": {
+        "time": 395473.15625,
+        "speedup": 1.144368,
+        "error": 2.91255e-8,
+        "doubles": 98182868,
+        "singles": 692924440,
+        "percentage": 0.87589
+      },
+      "DD (RS)": {
+        "time": 321531.8125,
+        "speedup": 1.407533,
+        "error": 2.89067e-8,
+        "doubles": 359707256,
+        "singles": 431400052,
+        "percentage": 0.54531
+      },
+      "DD (RD)": {
+        "time": 567372.75,
+        "speedup": 0.797653,
+        "error": 2.89067e-8,
+        "doubles": 359707256,
+        "singles": 431400052,
+        "percentage": 0.54531
+      },
+      "DD (RC)": {
+        "time": 314011.59375,
+        "speedup": 1.441242,
+        "error": 2.89067e-8,
+        "doubles": 359707256,
+        "singles": 431400052,
+        "percentage": 0.54531
+      },
+      "DD(RC)-FP64": {
+        "time": 364849.09375,
+        "speedup": 1.240422,
+        "error": 2.72751e-8,
+        "doubles": 359707256,
+        "singles": 431400052,
+        "percentage": 0.54531
+      },
+      "FP32-DD(RC)-FP64": {
+        "time": 327506.125,
+        "speedup": 1.381857,
+        "error": 2.72732e-8,
+        "doubles": 359707256,
+        "singles": 431400052,
+        "percentage": 0.54531
+      }
+    },
+    "timings": {},
+    "error": null,
+    "info": {
+      "path": "/home/ttorun/erhan/mcsr-spmv/res/cardiac/heart07_A_uniform_forward_dt0001_fv.mtx",
+      "code": 0,
+      "rows": 55603164,
+      "cols": 55603164,
+      "is_square": true,
+      "nnz": 846710472,
+      "spmv_iter": 500,
+      "jacobi_iter": 500,
+      "cardiac_iter": 8000,
+      "is_symmetric": false,
+      "run_option": 1,
+      "empty_rows": 0,
+      "avg_nz_inrow": 15.227739,
+      "min_nz_inrow": 4,
+      "max_nz_inrow": 17,
+      "dd_range": 1.0,
+      "dd_percentage": 99.0,
+      "dd_shrink": 0.5,
+      "mattype": "r"
+    },
+    "parameters": null
+  }
+}

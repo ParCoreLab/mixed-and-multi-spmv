@@ -1,0 +1,883 @@
+--- VERSIONS ---
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Sun_Feb_14_21:12:58_PST_2021
+Cuda compilation tools, release 11.2, V11.2.152
+Build cuda_11.2.r11.2/compiler.29618528_0
+gcc (GCC) 9.3.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Python 3.7.4
+
+--- BUILDING ---
+ Cleaning...
+rm -f -r build/*.o bin/spmv
+ Compiling C files...
+gcc -O3 -fopenmp -std=c99 -Wno-unused-result -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/mmio.o src/mmio.c
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/printing.o src/printing.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/matrix.o src/matrix.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/precisions.o src/precisions.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/parameters.o src/parameters.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/utils.o src/utils.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/graph.o src/graph.cpp
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/compute_utils.o src/compute_utils.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/kernels.o src/kernels.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/spmv_computations.o src/spmv_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/compute_drives.o src/compute_drives.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_kernel_computations.o src/jacobi_kernel_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_computations.o src/jacobi_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_multistep_computations.o src/jacobi_multistep_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_kernel_multistep_computations.o src/jacobi_kernel_multistep_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=0 -DCUDA_CHECK_KERNELS=0  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/main.o src/main.cu
+ Linking...
+gcc build/mmio.o build/printing.o build/matrix.o build/precisions.o build/parameters.o build/utils.o build/graph.o build/compute_utils.o build/kernels.o build/spmv_computations.o build/compute_drives.o build/jacobi_kernel_computations.o build/jacobi_computations.o build/jacobi_multistep_computations.o build/jacobi_kernel_multistep_computations.o build/main.o -o bin/spmv -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -lrt -lm -lcudart -fopenmp -lhsl_mc64 -lhsl_mc69 -lgfortran -Llib -L/usr/local/cuda-11.2/lib64 -L/usr/local/lib/ -L../lib/
+
+--- RUNNING ---
+Sun Nov  7 17:57:45 +03 2021
+Evaluating all matrices from: ./res/mm.jacobi.index
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Andrews/Andrews.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Andrews.tar.gz (1795158 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Andrews.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Andrews.mtx ...  OK (5979333 bytes)
+[ 1 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Andrews.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Andrews : FP64 Jacobi is bad. (e: 1.04193e+00, d: 6.00000e+04, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/bwm200.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bwm200.tar.gz (2999 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bwm200.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bwm200.mtx ...  OK (17828 bytes)
+[ 2 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bwm200.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bwm200 : FP64 Jacobi is bad. (e: 2.80980e+00, d: 4.99130e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/bwm2000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bwm2000.tar.gz (25021 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bwm2000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bwm2000.mtx ...  OK (189635 bytes)
+[ 3 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bwm2000.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bwm2000 : FP64 Jacobi is bad. (e: 9.71867e-01, d: 1.89323e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde1.tar.gz (18592 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde1.mtx ...  OK (78475 bytes)
+[ 4 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde2.tar.gz (17635 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde2.mtx ...  OK (77547 bytes)
+[ 5 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde3.tar.gz (17548 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde3.mtx ...  OK (75594 bytes)
+[ 6 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde3.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde4.tar.gz (16966 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde4.mtx ...  OK (74664 bytes)
+[ 7 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde4.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde5.tar.gz (17650 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde5.mtx ...  OK (78477 bytes)
+[ 8 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde6.tar.gz (17639 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cdde6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde6.mtx ...  OK (77539 bytes)
+[ 9 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cdde6.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/pde225.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/pde225.tar.gz (10047 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/pde225.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/pde225.mtx ...  OK (23851 bytes)
+[ 10 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/pde225.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/pde2961.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/pde2961.tar.gz (116457 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/pde2961.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/pde2961.mtx ...  OK (306357 bytes)
+[ 11 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/pde2961.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/pde900.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/pde900.tar.gz (38537 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/pde900.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/pde900.mtx ...  OK (99819 bytes)
+[ 12 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/pde900.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb1250.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb1250.tar.gz (23913 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb1250.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb1250.mtx ...  OK (109282 bytes)
+[ 13 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb1250.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb1250l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb1250l.tar.gz (24132 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb1250l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb1250l.mtx ...  OK (103859 bytes)
+[ 14 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb1250l.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in rdb1250l : FP64 Jacobi is bad. (e: 9.76638e+27, d: 9.12438e+30, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb200.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb200.tar.gz (4030 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb200.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb200.mtx ...  OK (14952 bytes)
+[ 15 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb200.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in rdb200 : FP64 Jacobi is bad. (e: 2.47209e+19, d: 4.69549e+21, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb200l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb200l.tar.gz (3949 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb200l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb200l.mtx ...  OK (14034 bytes)
+[ 16 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb200l.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb3200l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb3200l.tar.gz (65377 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb3200l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb3200l.mtx ...  OK (296065 bytes)
+[ 17 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb3200l.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in rdb3200l : FP64 Jacobi is bad. (e: 1.45526e+01, d: 3.69024e+04, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb5000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb5000.tar.gz (92298 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/rdb5000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb5000.mtx ...  OK (480992 bytes)
+[ 18 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/rdb5000.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in rdb5000 : FP64 Jacobi is bad. (e: 3.81041e+05, d: 1.53596e+09, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/tub100.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/tub100.tar.gz (2516 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/tub100.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/tub100.mtx ...  OK (5986 bytes)
+[ 19 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/tub100.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in tub100 : FP64 Jacobi is bad. (e: 5.27499e+00, d: 4.01941e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/tub1000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/tub1000.tar.gz (22563 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/tub1000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/tub1000.mtx ...  OK (76953 bytes)
+[ 20 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/tub1000.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in tub1000 : FP64 Jacobi is bad. (e: 9.48590e-01, d: 9.46142e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bates/Chem97ZtZ.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Chem97ZtZ.tar.gz (23433 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Chem97ZtZ.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Chem97ZtZ.mtx ...  OK (83528 bytes)
+[ 21 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Chem97ZtZ.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bourchtein/atmosmodd.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/atmosmodd.tar.gz (49643170 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/atmosmodd.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/atmosmodd.mtx ...  OK (276781801 bytes)
+[ 22 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/atmosmodd.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in atmosmodd : FP64 Jacobi is bad. (e: 5.83605e-01, d: 6.30169e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bourchtein/atmosmodj.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/atmosmodj.tar.gz (49778897 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/atmosmodj.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/atmosmodj.mtx ...  OK (276781801 bytes)
+[ 23 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/atmosmodj.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in atmosmodj : FP64 Jacobi is bad. (e: 5.93221e-01, d: 6.45235e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bourchtein/atmosmodl.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/atmosmodl.tar.gz (54213915 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/atmosmodl.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/atmosmodl.mtx ...  OK (219158210 bytes)
+[ 24 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/atmosmodl.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in atmosmodl : FP64 Jacobi is bad. (e: 2.19228e-01, d: 2.78724e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bourchtein/atmosmodm.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/atmosmodm.tar.gz (53519880 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/atmosmodm.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/atmosmodm.mtx ...  OK (221980901 bytes)
+[ 25 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/atmosmodm.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in atmosmodm : FP64 Jacobi is bad. (e: 4.55115e-02, d: 5.99166e+04, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/CEMW/t2em.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/t2em.tar.gz (15296822 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/t2em.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/t2em.mtx ...  OK (76034632 bytes)
+[ 26 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/t2em.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in t2em : FP64 Jacobi is bad. (e: 9.46194e-01, d: 8.52759e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/FIDAP/ex37.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/ex37.tar.gz (644640 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/ex37.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/ex37.mtx ...  OK (1814821 bytes)
+[ 27 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/ex37.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in ex37 : FP64 Jacobi is bad. (e: 2.66973e+22, d: 1.44337e+25, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Gaertner/big.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/big.tar.gz (287228 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/big.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/big.mtx ...  OK (1212683 bytes)
+[ 28 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/big.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in big : FP64 Jacobi is bad. (e: 6.99182e+08, d: 6.40276e+11, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Gaertner/nopoly.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/nopoly.tar.gz (142135 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/nopoly.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/nopoly.mtx ...  OK (524619 bytes)
+[ 29 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/nopoly.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in nopoly : FP64 Jacobi is bad. (e: 1.03197e+00, d: 1.07740e+04, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Gaertner/pesa.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/pesa.tar.gz (245202 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/pesa.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/pesa.mtx ...  OK (1036490 bytes)
+[ 30 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/pesa.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in pesa : FP64 Jacobi is bad. (e: 1.43334e+12, d: 2.24384e+15, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Grund/poli.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/poli.tar.gz (33613 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/poli.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/poli.mtx ...  OK (102468 bytes)
+[ 31 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/poli.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/bcsstk01.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bcsstk01.tar.gz (1812 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bcsstk01.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bcsstk01.mtx ...  OK (4541 bytes)
+[ 32 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bcsstk01.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bcsstk01 : FP64 Jacobi is bad. (e: 5.62287e+28, d: 1.67387e+30, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/bcsstk09.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bcsstk09.tar.gz (38917 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bcsstk09.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bcsstk09.mtx ...  OK (220674 bytes)
+[ 33 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bcsstk09.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bcsstk09 : FP64 Jacobi is bad. (e: 3.67741e-01, d: 1.87776e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/bcsstk21.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bcsstk21.tar.gz (67705 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bcsstk21.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bcsstk21.mtx ...  OK (271579 bytes)
+[ 34 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bcsstk21.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bcsstk21 : FP64 Jacobi is bad. (e: 2.99811e-01, d: 4.34177e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/nos1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/nos1.tar.gz (3025 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/nos1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/nos1.mtx ...  OK (10576 bytes)
+[ 35 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/nos1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in nos1 : FP64 Jacobi is bad. (e: 6.21227e-01, d: 1.09546e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/nos5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/nos5.tar.gz (13125 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/nos5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/nos5.mtx ...  OK (42788 bytes)
+[ 36 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/nos5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in nos5 : FP64 Jacobi is bad. (e: 2.51320e+11, d: 2.89364e+13, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/nos6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/nos6.tar.gz (7644 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/nos6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/nos6.mtx ...  OK (26935 bytes)
+[ 37 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/nos6.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in nos6 : FP64 Jacobi is bad. (e: 8.04109e-01, d: 2.33852e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/saylr1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/saylr1.tar.gz (6808 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/saylr1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/saylr1.mtx ...  OK (16806 bytes)
+[ 38 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/saylr1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in saylr1 : FP64 Jacobi is bad. (e: 2.48290e+00, d: 1.98857e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/saylr4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/saylr4.tar.gz (52506 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/saylr4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/saylr4.mtx ...  OK (229238 bytes)
+[ 39 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/saylr4.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in saylr4 : FP64 Jacobi is bad. (e: 6.50916e-01, d: 2.24132e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/sherman4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/sherman4.tar.gz (31619 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/sherman4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/sherman4.mtx ...  OK (66533 bytes)
+[ 40 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/sherman4.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/steam1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/steam1.tar.gz (18177 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/steam1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/steam1.mtx ...  OK (53808 bytes)
+[ 41 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/steam1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in steam1 : FP64 Jacobi is bad. (e: 1.29588e+33, d: 1.07470e+35, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/steam2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/steam2.tar.gz (55145 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/steam2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/steam2.mtx ...  OK (182073 bytes)
+[ 42 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/steam2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in steam2 : FP64 Jacobi is bad. (e: 1.43240e-01, d: 4.40220e+01, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/steam3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/steam3.tar.gz (4293 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/steam3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/steam3.mtx ...  OK (10473 bytes)
+[ 43 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/steam3.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Lin/Lin.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Lin.tar.gz (5857420 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Lin.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Lin.mtx ...  OK (32215886 bytes)
+[ 44 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Lin.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Lin : FP64 Jacobi is bad. (e: 5.12250e-02, d: 7.11174e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Lucifora/cell1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cell1.tar.gz (150384 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cell1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cell1.mtx ...  OK (567106 bytes)
+[ 45 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cell1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in cell1 : FP64 Jacobi is bad. (e: 1.57782e+01, d: 6.59924e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Lucifora/cell2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cell2.tar.gz (142677 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cell2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cell2.mtx ...  OK (472373 bytes)
+[ 46 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cell2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in cell2 : FP64 Jacobi is bad. (e: 1.57782e+01, d: 6.59917e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/MathWorks/Pd.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Pd.tar.gz (94163 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Pd.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Pd.mtx ...  OK (175643 bytes)
+[ 47 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Pd.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/McRae/ecology1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/ecology1.tar.gz (9684781 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/ecology1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/ecology1.mtx ...  OK (52298793 bytes)
+[ 48 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/ecology1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in ecology1 : FP64 Jacobi is bad. (e: 1.01132e+00, d: 1.00003e+06, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/McRae/ecology2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/ecology2.tar.gz (9683512 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/ecology2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/ecology2.mtx ...  OK (52298703 bytes)
+[ 49 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/ecology2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in ecology2 : FP64 Jacobi is bad. (e: 1.01116e+00, d: 9.99836e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Mulvey/finan512.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/finan512.tar.gz (3576052 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/finan512.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/finan512.mtx ...  OK (8752829 bytes)
+[ 50 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/finan512.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Norris/fv1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/fv1.tar.gz (142017 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/fv1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/fv1.mtx ...  OK (721066 bytes)
+[ 51 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/fv1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Norris/fv2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/fv2.tar.gz (140733 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/fv2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/fv2.mtx ...  OK (726349 bytes)
+[ 52 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/fv2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Norris/fv3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/fv3.tar.gz (139461 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/fv3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/fv3.mtx ...  OK (667543 bytes)
+[ 53 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/fv3.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Oberwolfach/LF10.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/LF10.tar.gz (1472 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/LF10.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/LF10.mtx ...  OK (1662 bytes)
+[ 54 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/LF10.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in LF10 : FP64 Jacobi is bad. (e: 1.67557e+07, d: 2.12400e+08, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/benzene.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/benzene.tar.gz (598334 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/benzene.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/benzene.mtx ...  OK (3641166 bytes)
+[ 55 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/benzene.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in benzene : FP64 Jacobi is bad. (e: 7.46186e+08, d: 1.36223e+12, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Ge87H76.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Ge87H76.tar.gz (34806855 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Ge87H76.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Ge87H76.mtx ...  OK (129446868 bytes)
+[ 56 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Ge87H76.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Ge99H100.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Ge99H100.tar.gz (38141079 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Ge99H100.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Ge99H100.mtx ...  OK (138691957 bytes)
+[ 57 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Ge99H100.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Si2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Si2.tar.gz (55149 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Si2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Si2.mtx ...  OK (249349 bytes)
+[ 58 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Si2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Si2 : FP64 Jacobi is bad. (e: 1.02133e-01, d: 5.57601e+01, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Si34H36.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Si34H36.tar.gz (15559901 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Si34H36.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Si34H36.mtx ...  OK (83341144 bytes)
+[ 59 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Si34H36.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Si34H36 : FP64 Jacobi is bad. (e: 1.30085e+30, d: 4.64818e+34, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Si5H12.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Si5H12.tar.gz (2060479 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/Si5H12.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Si5H12.mtx ...  OK (11482796 bytes)
+[ 60 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/Si5H12.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Si5H12 : FP64 Jacobi is bad. (e: 5.11965e+09, d: 2.56228e+13, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/bodyy4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bodyy4.tar.gz (711117 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bodyy4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bodyy4.mtx ...  OK (1555866 bytes)
+[ 61 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bodyy4.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/bodyy5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bodyy5.tar.gz (753831 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bodyy5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bodyy5.mtx ...  OK (1678245 bytes)
+[ 62 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bodyy5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bodyy5 : FP64 Jacobi is bad. (e: 1.62656e-01, d: 9.52404e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/bodyy6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bodyy6.tar.gz (784772 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/bodyy6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bodyy6.mtx ...  OK (1774704 bytes)
+[ 63 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/bodyy6.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bodyy6 : FP64 Jacobi is bad. (e: 7.07125e-01, d: 5.44068e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh1e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh1e1.tar.gz (2547 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh1e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh1e1.mtx ...  OK (3642 bytes)
+[ 64 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh1e1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh1em1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh1em1.tar.gz (2592 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh1em1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh1em1.mtx ...  OK (3659 bytes)
+[ 65 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh1em1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh1em6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh1em6.tar.gz (2434 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh1em6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh1em6.mtx ...  OK (3579 bytes)
+[ 66 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh1em6.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh2e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh2e1.tar.gz (13451 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh2e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh2e1.mtx ...  OK (22564 bytes)
+[ 67 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh2e1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh2em5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh2em5.tar.gz (13696 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh2em5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh2em5.mtx ...  OK (22870 bytes)
+[ 68 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh2em5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh3e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh3e1.tar.gz (3810 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh3e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh3e1.mtx ...  OK (10828 bytes)
+[ 69 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh3e1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh3em5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh3em5.tar.gz (4637 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mesh3em5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh3em5.mtx ...  OK (13792 bytes)
+[ 70 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mesh3em5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/QLi/crashbasis.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/crashbasis.tar.gz (9783534 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/crashbasis.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/crashbasis.mtx ...  OK (36645733 bytes)
+[ 71 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/crashbasis.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in crashbasis : FP64 Jacobi is bad. (e: 9.52028e+106, d: 2.59963e+110, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/QLi/majorbasis.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/majorbasis.tar.gz (10709613 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/majorbasis.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/majorbasis.mtx ...  OK (37650448 bytes)
+[ 72 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/majorbasis.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Rothberg/cfd1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cfd1.tar.gz (9316435 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cfd1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cfd1.mtx ...  OK (24455525 bytes)
+[ 73 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cfd1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Rothberg/cfd2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cfd2.tar.gz (15828101 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/cfd2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cfd2.mtx ...  OK (41954205 bytes)
+[ 74 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cfd2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Schmid/thermal1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/thermal1.tar.gz (4207812 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/thermal1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/thermal1.mtx ...  OK (10113669 bytes)
+[ 75 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/thermal1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Schmid/thermal2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/thermal2.tar.gz (64854356 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/thermal2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/thermal2.mtx ...  OK (163044976 bytes)
+[ 76 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/thermal2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Tromble/language.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/language.tar.gz (6937840 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/language.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/language.mtx ...  OK (23304706 bytes)
+[ 77 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/language.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Williams/mc2depi.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mc2depi.tar.gz (10874561 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/cache/mc2depi.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mc2depi.mtx ...  OK (38344896 bytes)
+[ 78 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/SMDEOWJZ/mc2depi.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in mc2depi : FP64 Jacobi is bad. (e: 1.13066e+00, d: 5.90015e+05, i: 750)
+info results saved as JSON at:
+ /scratch/users/etezcan19/mcsr-spmv/scripts/../evaluations/out/07-11-2021_17-57-49/dict.json
+
+--- BUILDING ---
+ Cleaning...
+rm -f -r build/*.o bin/spmv
+ Compiling C files...
+gcc -O3 -fopenmp -std=c99 -Wno-unused-result -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/mmio.o src/mmio.c
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/printing.o src/printing.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/matrix.o src/matrix.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/precisions.o src/precisions.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/parameters.o src/parameters.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/utils.o src/utils.cpp
+ Compiling C++ files...
+g++ -O3 -fopenmp --std=c++11 -Wno-unused-result -fno-exceptions -Wall -Wextra -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/graph.o src/graph.cpp
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/compute_utils.o src/compute_utils.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/kernels.o src/kernels.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/spmv_computations.o src/spmv_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/compute_drives.o src/compute_drives.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_kernel_computations.o src/jacobi_kernel_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_computations.o src/jacobi_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_multistep_computations.o src/jacobi_multistep_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/jacobi_kernel_multistep_computations.o src/jacobi_kernel_multistep_computations.cu
+ Compiling CUDA files...
+nvcc -ccbin g++ -O3 -Xcompiler -fopenmp -Xcompiler -Wno-unused-result -Xcompiler -fno-exceptions -Xcompiler -Wall -DJACOBI_PRINT_ITERATIONS=1 -DCUDA_CHECK_KERNELS=1  -arch=sm_70 -Wno-deprecated-gpu-targets  -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -c -o build/main.o src/main.cu
+ Linking...
+gcc build/mmio.o build/printing.o build/matrix.o build/precisions.o build/parameters.o build/utils.o build/graph.o build/compute_utils.o build/kernels.o build/spmv_computations.o build/compute_drives.o build/jacobi_kernel_computations.o build/jacobi_computations.o build/jacobi_multistep_computations.o build/jacobi_kernel_multistep_computations.o build/main.o -o bin/spmv -Iinclude -I/usr/local/cuda-11.2/include -Itemplates -lrt -lm -lcudart -fopenmp -lhsl_mc64 -lhsl_mc69 -lgfortran -Llib -L/usr/local/cuda-11.2/lib64 -L/usr/local/lib/ -L../lib/
+
+--- RUNNING ---
+Sun Nov  7 18:07:20 +03 2021
+Evaluating all matrices from: ./res/mm.jacobi.index
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Andrews/Andrews.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Andrews.tar.gz (1795158 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Andrews.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Andrews.mtx ...  OK (5979333 bytes)
+[ 1 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Andrews.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Andrews : FP64 Jacobi is bad. (e: 1.04193e+00, d: 6.00000e+04, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/bwm200.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bwm200.tar.gz (2999 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bwm200.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bwm200.mtx ...  OK (17828 bytes)
+[ 2 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bwm200.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bwm200 : FP64 Jacobi is bad. (e: 2.80980e+00, d: 4.99130e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/bwm2000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bwm2000.tar.gz (25021 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bwm2000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bwm2000.mtx ...  OK (189635 bytes)
+[ 3 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bwm2000.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bwm2000 : FP64 Jacobi is bad. (e: 9.71867e-01, d: 1.89323e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde1.tar.gz (18592 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde1.mtx ...  OK (78475 bytes)
+[ 4 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde2.tar.gz (17635 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde2.mtx ...  OK (77547 bytes)
+[ 5 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde3.tar.gz (17548 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde3.mtx ...  OK (75594 bytes)
+[ 6 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde3.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde4.tar.gz (16966 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde4.mtx ...  OK (74664 bytes)
+[ 7 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde4.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde5.tar.gz (17650 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde5.mtx ...  OK (78477 bytes)
+[ 8 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/cdde6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde6.tar.gz (17639 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cdde6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde6.mtx ...  OK (77539 bytes)
+[ 9 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cdde6.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/pde225.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/pde225.tar.gz (10047 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/pde225.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/pde225.mtx ...  OK (23851 bytes)
+[ 10 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/pde225.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/pde2961.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/pde2961.tar.gz (116457 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/pde2961.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/pde2961.mtx ...  OK (306357 bytes)
+[ 11 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/pde2961.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/pde900.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/pde900.tar.gz (38537 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/pde900.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/pde900.mtx ...  OK (99819 bytes)
+[ 12 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/pde900.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb1250.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb1250.tar.gz (23913 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb1250.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb1250.mtx ...  OK (109282 bytes)
+[ 13 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb1250.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb1250l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb1250l.tar.gz (24132 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb1250l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb1250l.mtx ...  OK (103859 bytes)
+[ 14 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb1250l.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in rdb1250l : FP64 Jacobi is bad. (e: 9.76638e+27, d: 9.12438e+30, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb200.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb200.tar.gz (4030 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb200.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb200.mtx ...  OK (14952 bytes)
+[ 15 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb200.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in rdb200 : FP64 Jacobi is bad. (e: 2.47209e+19, d: 4.69549e+21, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb200l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb200l.tar.gz (3949 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb200l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb200l.mtx ...  OK (14034 bytes)
+[ 16 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb200l.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb3200l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb3200l.tar.gz (65377 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb3200l.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb3200l.mtx ...  OK (296065 bytes)
+[ 17 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb3200l.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in rdb3200l : FP64 Jacobi is bad. (e: 1.45526e+01, d: 3.69024e+04, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/rdb5000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb5000.tar.gz (92298 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/rdb5000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb5000.mtx ...  OK (480992 bytes)
+[ 18 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/rdb5000.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in rdb5000 : FP64 Jacobi is bad. (e: 3.81041e+05, d: 1.53596e+09, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/tub100.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/tub100.tar.gz (2516 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/tub100.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/tub100.mtx ...  OK (5986 bytes)
+[ 19 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/tub100.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in tub100 : FP64 Jacobi is bad. (e: 5.27499e+00, d: 4.01941e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bai/tub1000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/tub1000.tar.gz (22563 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/tub1000.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/tub1000.mtx ...  OK (76953 bytes)
+[ 20 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/tub1000.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in tub1000 : FP64 Jacobi is bad. (e: 9.48590e-01, d: 9.46142e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bates/Chem97ZtZ.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Chem97ZtZ.tar.gz (23433 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Chem97ZtZ.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Chem97ZtZ.mtx ...  OK (83528 bytes)
+[ 21 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Chem97ZtZ.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bourchtein/atmosmodd.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/atmosmodd.tar.gz (49643170 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/atmosmodd.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/atmosmodd.mtx ...  OK (276781801 bytes)
+[ 22 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/atmosmodd.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in atmosmodd : FP64 Jacobi is bad. (e: 5.83605e-01, d: 6.30169e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bourchtein/atmosmodj.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/atmosmodj.tar.gz (49778897 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/atmosmodj.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/atmosmodj.mtx ...  OK (276781801 bytes)
+[ 23 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/atmosmodj.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in atmosmodj : FP64 Jacobi is bad. (e: 5.93221e-01, d: 6.45235e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bourchtein/atmosmodl.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/atmosmodl.tar.gz (54213915 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/atmosmodl.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/atmosmodl.mtx ...  OK (219158210 bytes)
+[ 24 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/atmosmodl.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in atmosmodl : FP64 Jacobi is bad. (e: 2.19228e-01, d: 2.78724e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Bourchtein/atmosmodm.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/atmosmodm.tar.gz (53519880 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/atmosmodm.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/atmosmodm.mtx ...  OK (221980901 bytes)
+[ 25 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/atmosmodm.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in atmosmodm : FP64 Jacobi is bad. (e: 4.55115e-02, d: 5.99166e+04, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/CEMW/t2em.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/t2em.tar.gz (15296822 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/t2em.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/t2em.mtx ...  OK (76034632 bytes)
+[ 26 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/t2em.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in t2em : FP64 Jacobi is bad. (e: 9.46194e-01, d: 8.52759e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/FIDAP/ex37.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/ex37.tar.gz (644640 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/ex37.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/ex37.mtx ...  OK (1814821 bytes)
+[ 27 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/ex37.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in ex37 : FP64 Jacobi is bad. (e: 2.66973e+22, d: 1.44337e+25, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Gaertner/big.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/big.tar.gz (287228 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/big.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/big.mtx ...  OK (1212683 bytes)
+[ 28 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/big.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in big : FP64 Jacobi is bad. (e: 6.99182e+08, d: 6.40276e+11, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Gaertner/nopoly.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/nopoly.tar.gz (142135 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/nopoly.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/nopoly.mtx ...  OK (524619 bytes)
+[ 29 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/nopoly.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in nopoly : FP64 Jacobi is bad. (e: 1.03197e+00, d: 1.07740e+04, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Gaertner/pesa.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/pesa.tar.gz (245202 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/pesa.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/pesa.mtx ...  OK (1036490 bytes)
+[ 30 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/pesa.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in pesa : FP64 Jacobi is bad. (e: 1.43334e+12, d: 2.24384e+15, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Grund/poli.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/poli.tar.gz (33613 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/poli.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/poli.mtx ...  OK (102468 bytes)
+[ 31 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/poli.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/bcsstk01.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bcsstk01.tar.gz (1812 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bcsstk01.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bcsstk01.mtx ...  OK (4541 bytes)
+[ 32 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bcsstk01.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bcsstk01 : FP64 Jacobi is bad. (e: 5.62287e+28, d: 1.67387e+30, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/bcsstk09.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bcsstk09.tar.gz (38917 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bcsstk09.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bcsstk09.mtx ...  OK (220674 bytes)
+[ 33 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bcsstk09.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bcsstk09 : FP64 Jacobi is bad. (e: 3.67741e-01, d: 1.87776e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/bcsstk21.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bcsstk21.tar.gz (67705 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bcsstk21.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bcsstk21.mtx ...  OK (271579 bytes)
+[ 34 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bcsstk21.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bcsstk21 : FP64 Jacobi is bad. (e: 2.99811e-01, d: 4.34177e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/nos1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/nos1.tar.gz (3025 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/nos1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/nos1.mtx ...  OK (10576 bytes)
+[ 35 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/nos1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in nos1 : FP64 Jacobi is bad. (e: 6.21227e-01, d: 1.09546e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/nos5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/nos5.tar.gz (13125 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/nos5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/nos5.mtx ...  OK (42788 bytes)
+[ 36 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/nos5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in nos5 : FP64 Jacobi is bad. (e: 2.51320e+11, d: 2.89364e+13, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/nos6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/nos6.tar.gz (7644 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/nos6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/nos6.mtx ...  OK (26935 bytes)
+[ 37 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/nos6.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in nos6 : FP64 Jacobi is bad. (e: 8.04109e-01, d: 2.33852e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/saylr1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/saylr1.tar.gz (6808 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/saylr1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/saylr1.mtx ...  OK (16806 bytes)
+[ 38 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/saylr1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in saylr1 : FP64 Jacobi is bad. (e: 2.48290e+00, d: 1.98857e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/saylr4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/saylr4.tar.gz (52506 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/saylr4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/saylr4.mtx ...  OK (229238 bytes)
+[ 39 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/saylr4.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in saylr4 : FP64 Jacobi is bad. (e: 6.50916e-01, d: 2.24132e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/sherman4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/sherman4.tar.gz (31619 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/sherman4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/sherman4.mtx ...  OK (66533 bytes)
+[ 40 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/sherman4.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/steam1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/steam1.tar.gz (18177 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/steam1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/steam1.mtx ...  OK (53808 bytes)
+[ 41 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/steam1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in steam1 : FP64 Jacobi is bad. (e: 1.29588e+33, d: 1.07470e+35, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/steam2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/steam2.tar.gz (55145 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/steam2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/steam2.mtx ...  OK (182073 bytes)
+[ 42 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/steam2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in steam2 : FP64 Jacobi is bad. (e: 1.43240e-01, d: 4.40220e+01, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/HB/steam3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/steam3.tar.gz (4293 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/steam3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/steam3.mtx ...  OK (10473 bytes)
+[ 43 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/steam3.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Lin/Lin.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Lin.tar.gz (5857420 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Lin.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Lin.mtx ...  OK (32215886 bytes)
+[ 44 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Lin.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Lin : FP64 Jacobi is bad. (e: 5.12250e-02, d: 7.11174e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Lucifora/cell1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cell1.tar.gz (150384 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cell1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cell1.mtx ...  OK (567106 bytes)
+[ 45 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cell1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in cell1 : FP64 Jacobi is bad. (e: 1.57782e+01, d: 6.59924e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Lucifora/cell2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cell2.tar.gz (142677 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cell2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cell2.mtx ...  OK (472373 bytes)
+[ 46 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cell2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in cell2 : FP64 Jacobi is bad. (e: 1.57782e+01, d: 6.59917e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/MathWorks/Pd.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Pd.tar.gz (94163 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Pd.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Pd.mtx ...  OK (175643 bytes)
+[ 47 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Pd.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/McRae/ecology1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/ecology1.tar.gz (9684781 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/ecology1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/ecology1.mtx ...  OK (52298793 bytes)
+[ 48 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/ecology1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in ecology1 : FP64 Jacobi is bad. (e: 1.01132e+00, d: 1.00003e+06, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/McRae/ecology2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/ecology2.tar.gz (9683512 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/ecology2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/ecology2.mtx ...  OK (52298703 bytes)
+[ 49 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/ecology2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in ecology2 : FP64 Jacobi is bad. (e: 1.01116e+00, d: 9.99836e+05, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Mulvey/finan512.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/finan512.tar.gz (3576052 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/finan512.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/finan512.mtx ...  OK (8752829 bytes)
+[ 50 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/finan512.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Norris/fv1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/fv1.tar.gz (142017 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/fv1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/fv1.mtx ...  OK (721066 bytes)
+[ 51 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/fv1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Norris/fv2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/fv2.tar.gz (140733 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/fv2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/fv2.mtx ...  OK (726349 bytes)
+[ 52 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/fv2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Norris/fv3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/fv3.tar.gz (139461 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/fv3.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/fv3.mtx ...  OK (667543 bytes)
+[ 53 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/fv3.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Oberwolfach/LF10.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/LF10.tar.gz (1472 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/LF10.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/LF10.mtx ...  OK (1662 bytes)
+[ 54 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/LF10.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in LF10 : FP64 Jacobi is bad. (e: 1.67557e+07, d: 2.12400e+08, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/benzene.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/benzene.tar.gz (598334 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/benzene.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/benzene.mtx ...  OK (3641166 bytes)
+[ 55 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/benzene.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in benzene : FP64 Jacobi is bad. (e: 7.46186e+08, d: 1.36223e+12, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Ge87H76.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Ge87H76.tar.gz (34806855 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Ge87H76.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Ge87H76.mtx ...  OK (129446868 bytes)
+[ 56 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Ge87H76.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Ge99H100.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Ge99H100.tar.gz (38141079 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Ge99H100.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Ge99H100.mtx ...  OK (138691957 bytes)
+[ 57 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Ge99H100.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Si2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Si2.tar.gz (55149 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Si2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Si2.mtx ...  OK (249349 bytes)
+[ 58 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Si2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Si2 : FP64 Jacobi is bad. (e: 1.02133e-01, d: 5.57601e+01, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Si34H36.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Si34H36.tar.gz (15559901 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Si34H36.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Si34H36.mtx ...  OK (83341144 bytes)
+[ 59 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Si34H36.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Si34H36 : FP64 Jacobi is bad. (e: 1.30085e+30, d: 4.64818e+34, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/PARSEC/Si5H12.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Si5H12.tar.gz (2060479 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/Si5H12.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Si5H12.mtx ...  OK (11482796 bytes)
+[ 60 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/Si5H12.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in Si5H12 : FP64 Jacobi is bad. (e: 5.11965e+09, d: 2.56228e+13, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/bodyy4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bodyy4.tar.gz (711117 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bodyy4.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bodyy4.mtx ...  OK (1555866 bytes)
+[ 61 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bodyy4.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/bodyy5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bodyy5.tar.gz (753831 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bodyy5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bodyy5.mtx ...  OK (1678245 bytes)
+[ 62 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bodyy5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bodyy5 : FP64 Jacobi is bad. (e: 1.62656e-01, d: 9.52404e+02, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/bodyy6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bodyy6.tar.gz (784772 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/bodyy6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bodyy6.mtx ...  OK (1774704 bytes)
+[ 63 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/bodyy6.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in bodyy6 : FP64 Jacobi is bad. (e: 7.07125e-01, d: 5.44068e+03, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh1e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh1e1.tar.gz (2547 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh1e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh1e1.mtx ...  OK (3642 bytes)
+[ 64 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh1e1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh1em1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh1em1.tar.gz (2592 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh1em1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh1em1.mtx ...  OK (3659 bytes)
+[ 65 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh1em1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh1em6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh1em6.tar.gz (2434 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh1em6.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh1em6.mtx ...  OK (3579 bytes)
+[ 66 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh1em6.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh2e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh2e1.tar.gz (13451 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh2e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh2e1.mtx ...  OK (22564 bytes)
+[ 67 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh2e1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh2em5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh2em5.tar.gz (13696 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh2em5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh2em5.mtx ...  OK (22870 bytes)
+[ 68 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh2em5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh3e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh3e1.tar.gz (3810 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh3e1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh3e1.mtx ...  OK (10828 bytes)
+[ 69 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh3e1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Pothen/mesh3em5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh3em5.tar.gz (4637 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mesh3em5.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh3em5.mtx ...  OK (13792 bytes)
+[ 70 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mesh3em5.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/QLi/crashbasis.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/crashbasis.tar.gz (9783534 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/crashbasis.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/crashbasis.mtx ...  OK (36645733 bytes)
+[ 71 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/crashbasis.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in crashbasis : FP64 Jacobi is bad. (e: 9.52028e+106, d: 2.59963e+110, i: 750)
+
+Fetching http://sparse-files.engr.tamu.edu/MM/QLi/majorbasis.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/majorbasis.tar.gz (10709613 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/majorbasis.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/majorbasis.mtx ...  OK (37650448 bytes)
+[ 72 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/majorbasis.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Rothberg/cfd1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cfd1.tar.gz (9316435 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cfd1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cfd1.mtx ...  OK (24455525 bytes)
+[ 73 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cfd1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Rothberg/cfd2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cfd2.tar.gz (15828101 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/cfd2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cfd2.mtx ...  OK (41954205 bytes)
+[ 74 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cfd2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Schmid/thermal1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/thermal1.tar.gz (4207812 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/thermal1.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/thermal1.mtx ...  OK (10113669 bytes)
+[ 75 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/thermal1.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Schmid/thermal2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/thermal2.tar.gz (64854356 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/thermal2.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/thermal2.mtx ...  OK (163044976 bytes)
+[ 76 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/thermal2.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Tromble/language.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/language.tar.gz (6937840 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/language.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/language.mtx ...  OK (23304706 bytes)
+[ 77 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/language.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Success.
+
+Fetching http://sparse-files.engr.tamu.edu/MM/Williams/mc2depi.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mc2depi.tar.gz (10874561 bytes)...
+Extracting /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/cache/mc2depi.tar.gz -> /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mc2depi.mtx ...  OK (38344896 bytes)
+[ 78 / 78 ]:  /scratch/users/etezcan19/mcsr-spmv/scripts/../bin/spmv -m /scratch/users/etezcan19/mcsr-spmv/evaluations/all/HINSMT3I/mc2depi.mtx -s -p 1 -e 1e-12 --jacobi-i 750
+Error in mc2depi : FP64 Jacobi is bad. (e: 1.13066e+00, d: 5.90015e+05, i: 750)
+info results saved as JSON at:
+ /scratch/users/etezcan19/mcsr-spmv/scripts/../evaluations/out/07-11-2021_18-07-23/dict.json
+
+--- DONE ---
+Sun Nov  7 18:23:41 +03 2021

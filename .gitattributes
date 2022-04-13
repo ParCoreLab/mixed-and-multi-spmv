@@ -1,0 +1,9 @@
+*.ipynb linguist-documentation
+*.html linguist-documentation
+*.tpp linguist-language=C++
+*.cpp linguist-language=C++
+*.hpp linguist-language=C++
+*.h linguist-language=C
+*.c linguist-language=C
+*.cu linguist-language=Cuda
+*.cuh linguist-language=Cuda

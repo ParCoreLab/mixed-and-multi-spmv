@@ -1,0 +1,91 @@
+#include "spmv_ellr.cuh"
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CPU FP64
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+template <typename T>
+eval_t spmv_ELLR_CPU(param_t params, ELLR_Matrix<T> *mat, const T *x, T *y) {
+  /** HOST VARS **/
+  float timems;       // for timer
+  int iter, i, j;     // for loops
+  T t;                // temp var
+  double start, end;  // timers
+
+  /** KERNEL LAUNCH **/
+  start = omp_get_wtime();
+  for (iter = 1; iter <= params.spmv_iters; ++iter) {
+    for (i = 0; i < mat->M; ++i) {
+      t = (SPMV_IS_ACCUMULATIVE) ? y[i] : 0.0;
+      for (j = mat->R * i; j < mat->R * i + mat->rowlen[i]; ++j) {
+        t += mat->vals[j] * x[mat->cols[j]];
+      }
+      y[i] = t;
+    }
+  }
+  end = omp_get_wtime();
+  timems = (end - start) / 1000.0;
+
+  return create_spmv_evaluation(mat->M, sizeof(float) == sizeof(T) ? mat->nz : 0,
+                                sizeof(float) == sizeof(T) ? 0 : mat->nz, iter, timems);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GPU FP64
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+template <typename TIN, typename TOUT>
+eval_t spmv_ELLR(param_t params, ELLR_Matrix<TIN> *mat, TIN *x, TOUT *y) {
+  /** DEVICE VARS **/
+  TIN *d_x, *d_A;        // device ptrs
+  TOUT *d_y;             // device ptrs
+  int *d_cols, *d_rows;  // device ptrs
+
+  /** HOST VARS **/
+  float timems;  // for timer
+  int iter;      // for loops
+
+  /** DEVICE SETUP **/
+  CUDA_CHECK_CALL(cudaMalloc(&d_A, mat->M * mat->R * sizeof(TIN)));
+  CUDA_CHECK_CALL(cudaMalloc(&d_cols, mat->M * mat->R * sizeof(int)));
+  CUDA_CHECK_CALL(cudaMalloc(&d_rows, mat->M * sizeof(int)));
+  CUDA_CHECK_CALL(cudaMalloc(&d_x, mat->N * sizeof(TIN)));
+  CUDA_CHECK_CALL(cudaMalloc(&d_y, mat->M * sizeof(TOUT)));
+  CUDA_CHECK_CALL(cudaMemcpy(d_A, mat->vals, mat->M * mat->R * sizeof(TIN), cudaMemcpyHostToDevice));
+  CUDA_CHECK_CALL(cudaMemcpy(d_cols, mat->cols, mat->M * mat->R * sizeof(int), cudaMemcpyHostToDevice));
+  CUDA_CHECK_CALL(cudaMemcpy(d_rows, mat->rowlen, mat->M * sizeof(int), cudaMemcpyHostToDevice));
+  CUDA_CHECK_CALL(cudaMemcpy(d_x, x, mat->N * sizeof(TIN), cudaMemcpyHostToDevice));
+  CUDA_CHECK_CALL(cudaMemset(d_y, SPMV_INITIAL_Y_VALUE, mat->M * sizeof(TOUT)));
+
+  /** KERNEL LAUNCH **/
+  const size_t numBlocks = spmv_grid_size(mat->M, params.avg_nz_inrow);
+  START_TIMERS();
+  for (iter = 1; iter <= params.spmv_iters; iter++) {
+    if (params.avg_nz_inrow <= 2) {
+      kernel_spmv_ELLR_vector_CUSP<TIN, TOUT, 2>
+          <<<numBlocks, THREADS_PER_BLOCK>>>(mat->M, mat->R, d_A, d_x, d_cols, d_rows, d_y, SPMV_IS_ACCUMULATIVE);
+    } else if (params.avg_nz_inrow <= 4) {
+      kernel_spmv_ELLR_vector_CUSP<TIN, TOUT, 4>
+          <<<numBlocks, THREADS_PER_BLOCK>>>(mat->M, mat->R, d_A, d_x, d_cols, d_rows, d_y, SPMV_IS_ACCUMULATIVE);
+    } else if (params.avg_nz_inrow <= 8) {
+      kernel_spmv_ELLR_vector_CUSP<TIN, TOUT, 8>
+          <<<numBlocks, THREADS_PER_BLOCK>>>(mat->M, mat->R, d_A, d_x, d_cols, d_rows, d_y, SPMV_IS_ACCUMULATIVE);
+    } else if (params.avg_nz_inrow <= 16) {
+      kernel_spmv_ELLR_vector_CUSP<TIN, TOUT, 16>
+          <<<numBlocks, THREADS_PER_BLOCK>>>(mat->M, mat->R, d_A, d_x, d_cols, d_rows, d_y, SPMV_IS_ACCUMULATIVE);
+    } else
+      kernel_spmv_ELLR_vector_CUSP<TIN, TOUT, 32>
+          <<<numBlocks, THREADS_PER_BLOCK>>>(mat->M, mat->R, d_A, d_x, d_cols, d_rows, d_y, SPMV_IS_ACCUMULATIVE);
+    CUDA_GET_LAST_ERR("SPMV ELLR CUSP");
+  }
+  STOP_TIMERS(timems);
+
+  /** WRAP-UP **/
+  CUDA_CHECK_CALL(cudaMemcpy(y, d_y, mat->M * sizeof(TOUT), cudaMemcpyDeviceToHost));
+  CUDA_CHECK_CALL(cudaFree(d_A));
+  CUDA_CHECK_CALL(cudaFree(d_cols));
+  CUDA_CHECK_CALL(cudaFree(d_rows));
+  CUDA_CHECK_CALL(cudaFree(d_y));
+  CUDA_CHECK_CALL(cudaFree(d_x));
+
+  return create_spmv_evaluation(mat->M, sizeof(float) == sizeof(TIN) ? mat->nz : 0,
+                                sizeof(float) == sizeof(TIN) ? 0 : mat->nz, iter, timems);
+}

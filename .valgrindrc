@@ -1,0 +1,6 @@
+--tool=memcheck
+--track-origins=yes
+--suppressions=./diagnostic/valgrind.supp
+--leak-check=full
+--show-leak-kinds=all
+--log-file=./logs/valgrind.log 

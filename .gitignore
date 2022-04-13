@@ -1,0 +1,45 @@
+# Defaults for CUDA
+*.i
+*.ii
+*.gpu
+*.ptx
+*.cubin
+*.fatbin
+
+# Ignore the build and lib dirs
+build/*
+lib/*
+!build/README.MD
+
+# Ignore any executables
+bin/*
+!bin/README.MD
+
+# Ignore Mac specific files
+.DS_Store
+
+# Ignore notebook at root
+.ipynb_checkpoints
+.notebook
+__pycache__
+
+# Ignore matrix files
+*.mtx
+*.mtx.gz
+!res/test/*
+
+# Ignore evaluation outputs
+*.out
+evaluations/download/*
+evaluations/out/
+!evaluations/out/*.MD
+!evaluations/download/*.MD
+evaluations/all/*
+!evaluations/slurms/*
+
+
+.vscode/c_cpp_properties.json
+.ght
+misc/cudasample_simpleOccupancy/simpleOccupancy
+misc/cudasample_simpleOccupancy/simpleOccupancy.o
+misc/cudasample_simpleOccupancy/NsightEclipse.xml
