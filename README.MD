@@ -75,4 +75,4 @@ Stored under `scripts` folder:
 
 ## Submission 
 
-Submitted to EuroPar'22 as "Erhan Tezcan, Tuğba Torun, Fahrican Koşar, Kamer Kaya and Didem Unat, _Mixed and Multi-Precision SpMV for GPUs with Row-wise Precision Selection_"
+Submitted to SBACPAD'22 as "Erhan Tezcan, Tuğba Torun, Fahrican Koşar, Kamer Kaya and Didem Unat, _Mixed and Multi-Precision SpMV for GPUs with Row-wise Precision Selection_"
