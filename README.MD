@@ -72,7 +72,3 @@ Stored under `scripts` folder:
 - `prints.py` helper functions for printing.
 
 `plottype` folder has generic plotting functions such as bar, heatmap, density etc. and `plotspecial` folder has specific plots.
-
-## Submission 
-
-Submitted to SBACPAD'22 as "Erhan Tezcan, Tuğba Torun, Fahrican Koşar, Kamer Kaya and Didem Unat, _Mixed and Multi-Precision SpMV for GPUs with Row-wise Precision Selection_"
