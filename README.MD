@@ -76,3 +76,5 @@ Stored under `scripts` folder:
 ## Publication
 
 To be published in SBACPAD'22 IEEE 34th International Symposium on Computer Architecture and High Performance Computing.
+
+Erhan Tezcan, Tugba Torun, Fahrican Koşar, Kamer Kaya, and Didem Unat (2022). Mixed and Multi-Precision SpMV for GPUs with Row-wise Precision Selection. IEEE 34th International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD’22), November 2-5, 2022, Bordeaux, France.
